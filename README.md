@@ -1,25 +1,8 @@
-# Algo VPN - Pihole Fork
-
-[![Build Status](https://travis-ci.com/rodeodomino/algo-pihole.svg?branch=master)](https://travis-ci.com/rodeodomino/algo-pihole)
-
-This is a fork of [@trailofbits](https://github.com/trailofbits) amazing work with [Algo](https://github.com/trailofbits/algo), replacing their local dnsmasq ad blocking with Pi-hole with [@dan-v](https://github.com/dan-v)'s [Pi-hole](https://github.com/dan-v/algo) code.
-
-In addition to installing Pi-hole, it:
-
-* Automatically sets up [@mmotti](https://github.com/mmotti)'s [Fetch Filter Lists](https://github.com/mmotti/pihole-filter-lists) and [Gravity Optimise](https://github.com/mmotti/pihole-gravity-optimise) scripts
-* Checks for Pi-hole updates
-* Includes a prebuilt whitelist, blacklist, regex, and adlist (available for you to edit) based off of [@WaLLy3K](https://v.firebog.net/hosts/lists.php) and [@mmotti](https://github.com/mmotti)'s work.
-* Creates extra users for full tunneling and dns-only split tunneling
-
-***Important note***: Algo now supports (and defaults to) Ubuntu 19.04, but Pi-hole doesn't. This script still uses Ubuntu 18.04 LTS, with the option of changing it to 19.04 in `config.cfg`. If you change it, the Pi-hole web interface **will crash**. I will change the installation back to 19.04 once Pi-hole issues an update.
-
-Split tunneling caveats:
-* **Split tunneling only works with WireGuard** – if you can figure out how to make this work with StrongSwan, I would love to chat.
-
-----------------
+# Algo VPN
 
 [![Join the chat at https://gitter.im/trailofbits/algo](https://badges.gitter.im/trailofbits/algo.svg)](https://gitter.im/trailofbits/algo?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Twitter](https://img.shields.io/twitter/url/https/twitter.com/fold_left.svg?style=social&label=Follow%20%40AlgoVPN)](https://twitter.com/AlgoVPN)
+[![TravisCI Status](https://api.travis-ci.org/trailofbits/algo.svg?branch=master)](https://travis-ci.org/trailofbits/algo)
 
 Algo VPN is a set of Ansible scripts that simplify the setup of a personal IPSEC and Wireguard VPN. It uses the most secure defaults available, works with common cloud providers, and does not require client software on most devices. See our [release announcement](https://blog.trailofbits.com/2016/12/12/meet-algo-the-vpn-that-works/) for more information.
 
@@ -48,7 +31,7 @@ The easiest way to get an Algo server running is to let it set up a _new_ virtua
 
 1. **Setup an account on a cloud hosting provider.** Algo supports [DigitalOcean](https://m.do.co/c/4d7f4ff9cfe4) (most user friendly), [Amazon Lightsail](https://aws.amazon.com/lightsail/), [Amazon EC2](https://aws.amazon.com/), [Vultr](https://www.vultr.com/), [Microsoft Azure](https://azure.microsoft.com/), [Google Compute Engine](https://cloud.google.com/compute/), [Scaleway](https://www.scaleway.com/), and [DreamCompute](https://www.dreamhost.com/cloud/computing/) or other OpenStack-based cloud hosting.
 
-2. **[Download Algo](https://github.com/rodeodomino/algo-pihole/archive/master.zip).** Unzip it in a convenient location on your local machine.
+2. **[Download Algo](https://github.com/trailofbits/algo/archive/master.zip).** Unzip it in a convenient location on your local machine.
 
 3. **Install Algo's core dependencies.** Open the Terminal. The `python` interpreter you use to deploy Algo must be python2. If you don't know what this means, you're probably fine. `cd` into the `algo-master` directory where you unzipped Algo, then run:
 

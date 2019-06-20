@@ -8,7 +8,7 @@ You can copy-paste the snippet below to the user data (cloud-init or startup scr
 
 ```
 #!/bin/bash
-curl -s https://raw.githubusercontent.com/rodeodomino/algo-pihole/master/install.sh | sudo -E bash -x
+curl -s https://raw.githubusercontent.com/trailofbits/algo/master/install.sh | sudo -E bash -x
 ```
 The command will prepare the environment and install AlgoVPN with the default parameters below. If you want to modify the behavior you may define additional variables.
 
@@ -20,11 +20,11 @@ The command will prepare the environment and install AlgoVPN with the default pa
 `ONDEMAND_WIFI_EXCLUDE` - List the names of any trusted Wi-Fi networks where macOS/iOS IPsec clients should not use "Connect On Demand". Comma-separated list.
 `WINDOWS` - To support Windows 10 or Linux Desktop clients. Default: false.
 `STORE_CAKEY` - To retain the CA key. (required to add users in the future, but less secure). Default: false.
-`LOCAL_DNS` - To install an ad blocking DNS resolver. Default: true.
+`DNS_ADBLOCKING` - To install an ad blocking DNS resolver. Default: false.
 `SSH_TUNNELING` -  Enable SSH tunneling for each user. Default: false.
 `ENDPOINT` - The public IP address or domain name of your server: (IMPORTANT! This is used to verify the certificate). It will be gathered automatically for DigitalOcean, AWS, GCE, Azure or Vultr if the `METHOD` is cloud. Otherwise you need to define this variable according to your public IP address.  
 `USERS` - list of VPN users. Comma-separated list. Default: user1.
-`REPO_SLUG` - Owner and repository that used to get the installation scripts from. Default: rodeodomino/algo-pihole.   
+`REPO_SLUG` - Owner and repository that used to get the installation scripts from. Default: trailofbits/algo.   
 `REPO_BRANCH` - Branch for `REPO_SLUG`. Default: master.
 `EXTRA_VARS` - Additional extra variables.
 `ANSIBLE_EXTRA_ARGS` - Any available ansible parameters. ie: `--skip-tags apparmor`.
@@ -38,7 +38,7 @@ The command will prepare the environment and install AlgoVPN with the default pa
 export ONDEMAND_CELLULAR=true
 export WINDOWS=true
 export SSH_TUNNELING=true
-curl -s https://raw.githubusercontent.com/rodeodomino/algo-pihole/master/install.sh | sudo -E bash -x
+curl -s https://raw.githubusercontent.com/trailofbits/algo/master/install.sh | sudo -E bash -x
 ```
 
 ##### How to deploy locally without using cloud-init
@@ -47,7 +47,7 @@ curl -s https://raw.githubusercontent.com/rodeodomino/algo-pihole/master/install
 export METHOD=local
 export ONDEMAND_CELLULAR=true
 export ENDPOINT=[your server's IP here]
-curl -s https://raw.githubusercontent.com/rodeodomino/algo-pihole/master/install.sh | sudo -E bash -x
+curl -s https://raw.githubusercontent.com/trailofbits/algo/master/install.sh | sudo -E bash -x
 ```
 
 ##### How to deploy a server using arguments
@@ -55,5 +55,5 @@ curl -s https://raw.githubusercontent.com/rodeodomino/algo-pihole/master/install
 The arguments order as per [variables](#variables) above
 
 ```
-curl -s https://raw.githubusercontent.com/rodeodomino/algo-pihole/master/install.sh | sudo -E bash -x -s local true false _null true true true true myvpnserver.com phone,laptop,desktop
+curl -s https://raw.githubusercontent.com/trailofbits/algo/master/install.sh | sudo -E bash -x -s local true false _null true true true true myvpnserver.com phone,laptop,desktop
 ```
