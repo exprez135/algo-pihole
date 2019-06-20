@@ -14,6 +14,13 @@
   notify:
     - restart dnscrypt-proxy
 
+- name: dnscrypt-proxy wildcard-blacklist configured
+  template:
+    src: wildcard-blacklist.txt.j2
+    dest: "{{ config_prefix|default('/') }}etc/dnscrypt-proxy/wildcard.list"
+  notify:
+    - restart dnscrypt-proxy
+
 - name: dnscrypt-proxy configured
   template:
     src: dnscrypt-proxy.toml.j2
