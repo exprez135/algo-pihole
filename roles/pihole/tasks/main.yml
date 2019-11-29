@@ -46,7 +46,7 @@
       include_tasks: listrestore.yml
 
     - name: Install pihole
-      command: "~/install-pihole.sh --unattended"
+      command: "~/install-pihole.sh --unattended -x"
       register: dbg_install_pihole
 
     - name: Create wildcard scripts
